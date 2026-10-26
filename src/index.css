@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-paper-bg: #F5EFE6;
+    --color-paper-card: #FAF6F0;
+    --color-ink: #1C1917;
+    --color-ink-muted: #57534E;
+    --color-gold: #D4AF37;
+    --color-terracotta: #B94A3E;
+    --color-tape: rgba(223, 200, 165, 0.75);
+  }
+
+  body {
+    background-color: #F5EFE6;
+    color: #1C1917;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Typography Utilities */
+.font-display {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-script {
+  font-family: 'Caveat', cursive;
+}
+
+.font-hand {
+  font-family: 'La Belle Aurore', cursive;
+}
+
+.font-mono-editorial {
+  font-family: 'Space Grotesk', monospace;
+}
+
+/* Scrapbook Paper & Texture Styles */
+.bg-paper-texture {
+  background-color: #F5EFE6;
+  background-image: radial-gradient(#d6cabe 0.75px, transparent 0.75px), radial-gradient(#d6cabe 0.75px, #F5EFE6 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+.paper-card {
+  background-color: #FAF6F0;
+  box-shadow: 
+    0 1px 3px rgba(0,0,0,0.06), 
+    0 8px 24px -4px rgba(35, 25, 15, 0.12);
+}
+
+.polaroid-shadow {
+  box-shadow: 
+    0 3px 6px rgba(0,0,0,0.08),
+    0 12px 28px -6px rgba(28, 25, 23, 0.16);
+}
+
+.polaroid-shadow-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.polaroid-shadow-hover:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 8px 16px rgba(0,0,0,0.12),
+    0 20px 40px -8px rgba(28, 25, 23, 0.22);
+}
+
+/* 35mm Film Negative Border */
+.film-sprockets {
+  background-image: radial-gradient(circle, #FAF6F0 28%, transparent 32%);
+  background-size: 16px 16px;
+  background-repeat: repeat-x;
+}
+
+/* Washi Tape Accent */
+.washi-tape {
+  background: rgba(225, 206, 175, 0.78);
+  backdrop-filter: blur(1px);
+  border-left: 2px dashed rgba(200, 180, 150, 0.6);
+  border-right: 2px dashed rgba(200, 180, 150, 0.6);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* Infinite Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 25s linear infinite;
+}
+
+/* Torn paper edge mask */
+.torn-edge-top {
+  clip-path: polygon(
+    0% 4px, 5% 0px, 10% 4px, 15% 1px, 20% 5px, 25% 1px, 30% 4px, 35% 0px, 40% 4px, 45% 1px,
+    50% 5px, 55% 1px, 60% 4px, 65% 0px, 70% 4px, 75% 2px, 80% 5px, 85% 1px, 90% 4px, 95% 0px, 100% 4px,
+    100% 100%, 0% 100%
+  );
+}
+
+.torn-edge-bottom {
+  clip-path: polygon(
+    0% 0%, 100% 0%,
+    100% calc(100% - 4px), 95% 100%, 90% calc(100% - 4px), 85% calc(100% - 1px), 80% calc(100% - 5px),
+    75% calc(100% - 2px), 70% calc(100% - 4px), 65% 100%, 60% calc(100% - 4px), 55% calc(100% - 1px),
+    50% calc(100% - 5px), 45% calc(100% - 1px), 40% calc(100% - 4px), 35% 100%, 30% calc(100% - 4px),
+    25% calc(100% - 1px), 20% calc(100% - 5px), 15% calc(100% - 1px), 10% calc(100% - 4px), 5% 100%, 0% calc(100% - 4px)
+  );
+}
+
+/* Custom Scrollbar for vintage scrapbook */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EFE8DC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C4B59D;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A99980;
+}
